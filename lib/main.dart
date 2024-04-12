@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:login_app/size.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +28,9 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(children: [
+        SizedBox(
+          height: XlargeGap,
+        ),
         Logo("Login"),
       ]),
     );
