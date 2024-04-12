@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/home",
+      initialRoute: "/login",
       routes: {
         "/login": (context) => LoginPage(),
         "/home": (context) => HomePage(),
@@ -25,9 +26,34 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Login 로 그 인 - !"),
-      ),
+      body: ListView(children: [
+        Logo("Login"),
+      ]),
+    );
+  }
+}
+
+class Logo extends StatelessWidget {
+  final title;
+
+  Logo(this.title);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SvgPicture.asset(
+          "assets/logo.svg",
+          height: 70,
+        ),
+        Text(
+          "${title}",
+          style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
     );
   }
 }
