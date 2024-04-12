@@ -4,8 +4,13 @@ import 'package:login_app/size.dart';
 class CustomTextFormField extends StatelessWidget {
   final controller;
   final text;
+  final obscureText;
 
-  CustomTextFormField({required this.controller, required this.text});
+  CustomTextFormField({
+    required this.controller,
+    required this.text,
+    this.obscureText = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +19,9 @@ class CustomTextFormField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Email"),
+          Text("${text}"),
           TextFormField(
+            obscureText: obscureText,
             validator: (value) {
               print("value : ${value}");
 

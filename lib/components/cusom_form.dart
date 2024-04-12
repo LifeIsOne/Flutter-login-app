@@ -14,7 +14,8 @@ class CustomForm extends StatelessWidget {
       child: Column(
         children: [
           CustomTextFormField(controller: email, text: "Email"),
-          CustomTextFormField(controller: password, text: "Password"),
+          CustomTextFormField(
+              controller: password, text: "Password", obscureText: true),
           TextButton(
             onPressed: () {
               //print("email : ${email.text}");
