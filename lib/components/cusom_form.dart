@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'custom_text_form_field.dart';
+import 'package:login_app/components/custom_text_form_field.dart';
 
 class CustomForm extends StatelessWidget {
   final formkey = GlobalKey<FormState>();
@@ -33,8 +32,8 @@ class CustomForm extends StatelessWidget {
             validator: (value) {
               print("value : ${value}");
 
-              if (value!.isEmpty) {
-                return "비어있을수 없습니다";
+              if (value!.length < 4) {
+                return "패스워드는 4자보다 작을 수 없습니다.";
               } else {
                 return null; // 정상일때 null을 리턴한다.
               }
