@@ -5,11 +5,13 @@ class CustomTextFormField extends StatelessWidget {
   final controller;
   final text;
   final obscureText;
+  final validator;
 
   CustomTextFormField({
     required this.controller,
     required this.text,
     this.obscureText = false,
+    required this.validator,
   });
 
   @override
@@ -22,15 +24,7 @@ class CustomTextFormField extends StatelessWidget {
           Text("${text}"),
           TextFormField(
             obscureText: obscureText,
-            validator: (value) {
-              print("value : ${value}");
-
-              if (value!.isEmpty) {
-                return "비어있을수 없습니다";
-              } else {
-                return null; // 정상일때 null을 리턴한다.
-              }
-            },
+            validator: validator,
             controller: controller,
             decoration: InputDecoration(
               hintText: "Enter ${text}",

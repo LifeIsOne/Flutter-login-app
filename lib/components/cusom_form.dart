@@ -13,9 +13,33 @@ class CustomForm extends StatelessWidget {
       key: formkey,
       child: Column(
         children: [
-          CustomTextFormField(controller: email, text: "Email"),
           CustomTextFormField(
-              controller: password, text: "Password", obscureText: true),
+            controller: email,
+            text: "Email",
+            validator: (value) {
+              print("value : ${value}");
+
+              if (value!.isEmpty) {
+                return "비어있을수 없습니다";
+              } else {
+                return null; // 정상일때 null을 리턴한다.
+              }
+            },
+          ),
+          CustomTextFormField(
+            controller: password,
+            text: "Password",
+            obscureText: true,
+            validator: (value) {
+              print("value : ${value}");
+
+              if (value!.isEmpty) {
+                return "비어있을수 없습니다";
+              } else {
+                return null; // 정상일때 null을 리턴한다.
+              }
+            },
+          ),
           TextButton(
             onPressed: () {
               //print("email : ${email.text}");
